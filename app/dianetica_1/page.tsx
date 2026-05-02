@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { saveSubscriber } from '../../lib/email-storage'
+import { saveSubscriber } from '../../lib/email-storage';
 import { 
   CheckCircle, 
   ArrowRight, 
@@ -40,7 +40,6 @@ export default function Dianetica1Page() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* HERO */}
       <section className="relative text-white overflow-hidden" style={{background: 'linear-gradient(135deg, #051420 0%, #142839 50%, #051420 100%)'}}>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-green-500 rounded-full blur-3xl"></div>
@@ -83,7 +82,6 @@ export default function Dianetica1Page() {
         </div>
       </section>
 
-      {/* PROBLEM */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -114,7 +112,6 @@ export default function Dianetica1Page() {
         </div>
       </section>
 
-      {/* SOLUTION */}
       <section id="como-funciona" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -187,7 +184,6 @@ export default function Dianetica1Page() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
       <section className="py-20 text-white" style={{backgroundColor: '#051420'}}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -223,7 +219,6 @@ export default function Dianetica1Page() {
         </div>
       </section>
 
-      {/* WHAT YOU GET */}
       <section className="py-20 bg-green-50">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">O Que Você Recebe na Sessão Introdutória</h2>
@@ -249,7 +244,6 @@ export default function Dianetica1Page() {
         </div>
       </section>
 
-      {/* CTA / EMAIL FORM */}
       <section id="inscricao" className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-6">
           <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl">
@@ -301,7 +295,6 @@ export default function Dianetica1Page() {
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer className="text-gray-400 py-12 border-t border-gray-800" style={{backgroundColor: '#051420'}}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-8">
