@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { saveSubscriber } from '../../lib/email-storage';
+import { saveSubscriber } from '../../lib/email-storage'
 import { 
   CheckCircle, 
   ArrowRight, 
