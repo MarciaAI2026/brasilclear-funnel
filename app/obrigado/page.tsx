@@ -19,7 +19,8 @@ export default function ThankYouPage() {
   const variant = searchParams.get('variant') as 'A' | 'B' || 'A';
   const [countdown, setCountdown] = useState(24 * 60 * 60);
 
-  const WHATSAPP_NUMBER = "5511999999999";
+  // ✅ SEU WHATSAPP ATUALIZADO
+  const WHATSAPP_NUMBER = "17275546595";
   const WHATSAPP_MESSAGE = encodeURIComponent(
     "Olá! Acabei de me inscrever no site BrasilClear para a sessão introdutória gratuita de Dianética. Gostaria de agendar meu horário."
   );
