@@ -121,4 +121,97 @@ export default function AnalyticsPage() {
                 <tr>
                   <th className="text-left px-6 py-3 text-sm font-semibold text-gray-600">Metrica</th>
                   <th className="text-center px-6 py-3 text-sm font-semibold text-purple-600">Variante A (Emocional)</th>
-                  <th className="text-center px-6
+                  <th className="text-center px-6 py-3 text-sm font-semibold text-teal-600">Variante B (Logica/Dados)</th>
+                  <th className="text-center px-6 py-3 text-sm font-semibold text-gray-600">Vencedor</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                <tr>
+                  <td className="px-6 py-4 text-sm text-gray-700">Page Views</td>
+                  <td className="px-6 py-4 text-center font-mono text-sm">{pageViewsA}</td>
+                  <td className="px-6 py-4 text-center font-mono text-sm">{pageViewsB}</td>
+                  <td className="px-6 py-4 text-center">
+                    <span className={`inline-flex px-2 py-1 rounded-full text-xs font-bold ${pageViewsA >= pageViewsB ? 'bg-purple-100 text-purple-700' : 'bg-teal-100 text-teal-700'}`}>
+                      {pageViewsA >= pageViewsB ? 'A' : 'B'}
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm text-gray-700">Inscricoes</td>
+                  <td className="px-6 py-4 text-center font-mono text-sm">{subsA}</td>
+                  <td className="px-6 py-4 text-center font-mono text-sm">{subsB}</td>
+                  <td className="px-6 py-4 text-center">
+                    <span className={`inline-flex px-2 py-1 rounded-full text-xs font-bold ${subsA >= subsB ? 'bg-purple-100 text-purple-700' : 'bg-teal-100 text-teal-700'}`}>
+                      {subsA >= subsB ? 'A' : 'B'}
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm text-gray-700">Taxa de Conversao</td>
+                  <td className="px-6 py-4 text-center font-mono text-sm font-bold">{convA}%</td>
+                  <td className="px-6 py-4 text-center font-mono text-sm font-bold">{convB}%</td>
+                  <td className="px-6 py-4 text-center">
+                    <span className={`inline-flex px-2 py-1 rounded-full text-xs font-bold ${parseFloat(convA) >= parseFloat(convB) ? 'bg-purple-100 text-purple-700' : 'bg-teal-100 text-teal-700'}`}>
+                      {parseFloat(convA) >= parseFloat(convB) ? 'A' : 'B'}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+          <div className="p-6 border-b border-gray-100">
+            <h2 className="text-lg font-bold text-gray-900">Ultimos Inscritos</h2>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="text-left px-6 py-3 text-sm font-semibold text-gray-600">E-mail</th>
+                  <th className="text-center px-6 py-3 text-sm font-semibold text-gray-600">Variante</th>
+                  <th className="text-center px-6 py-3 text-sm font-semibold text-gray-600">Data</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {subscribers.length === 0 ? (
+                  <tr>
+                    <td colSpan={3} className="px-6 py-8 text-center text-gray-400">
+                      Nenhum inscrito ainda. Os dados aparecem aqui automaticamente.
+                    </td>
+                  </tr>
+                ) : (
+                  subscribers.slice().reverse().slice(0, 20).map((sub, i) => (
+                    <tr key={i}>
+                      <td className="px-6 py-3 text-sm text-gray-700 font-mono">{sub.email}</td>
+                      <td className="px-6 py-3 text-center">
+                        <span className={`inline-flex px-2 py-1 rounded-full text-xs font-bold ${sub.variant === 'A' ? 'bg-purple-100 text-purple-700' : 'bg-teal-100 text-teal-700'}`}>
+                          {sub.variant}
+                        </span>
+                      </td>
+                      <td className="px-6 py-3 text-center text-sm text-gray-500">
+                        {new Date(sub.timestamp).toLocaleString('pt-BR')}
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="mt-8 bg-blue-50 border border-blue-100 rounded-xl p-6">
+          <h3 className="font-bold text-blue-900 mb-2">Como Usar o A/B Test</h3>
+          <ul className="text-sm text-blue-800 space-y-1 list-disc list-inside">
+            <li>Os visitantes sao automaticamente divididos 50/50 entre Variante A e B</li>
+            <li>A atribuicao e "sticky" — o mesmo visitante sempre ve a mesma variante</li>
+            <li>Para forcar uma variante, adicione <code>?variant=A</code> ou <code>?variant=B</code> na URL</li>
+            <li>Apos coletar dados suficientes (minimo 100 visitantes por variante), escolha a melhor</li>
+            <li>Exporte os leads em CSV para importar no seu e-mail marketing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
