@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getAnalytics } from '@/lib/ab-test';
-import { getSubscribers, exportSubscribersCSV } from '@/lib/email-storage';
+import { getAnalytics } from '../../lib/ab-test';
+import { getSubscribers, exportSubscribersCSV } from '../../lib/email-storage';
 import { BarChart3, Users, Eye, MousePointer, Download, Trash2 } from 'lucide-react';
 
 export default function AnalyticsPage() {
